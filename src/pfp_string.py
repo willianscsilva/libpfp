@@ -1,3 +1,10 @@
+"""
+Author: Willians Costa da Silva
+Email: willianscsilva@gmail.com
+License: GNU General Public License version 2.0 (GPLv2) - http://www.gnu.org/licenses/gpl-2.0.html
+Created: 2013-03-23
+Note: Copy, distribute, modify freely, but keep the credits, please.
+"""
 import htmlentitydefs
 import re,cgi,sys
 class pfp_string:
@@ -23,7 +30,7 @@ class pfp_string:
 	def htmlentities(self,str):
 		return cgi.escape(str)
 
-	def html_entity_decode_char(self,m, defs=htmlentitydefs.entitydefs):
+	def __html_entity_decode_char(self,m, defs=htmlentitydefs.entitydefs):
 		try:
 			return defs[m.group(1)]
 		except KeyError:
@@ -32,7 +39,7 @@ class pfp_string:
 	def html_entity_decode(self,str):
 		try:
 			pattern = re.compile("&(\w+?);")
-			return pattern.sub(self.html_entity_decode_char, str)
+			return pattern.sub(self.__html_entity_decode_char, str)
 		except AttributeError, ae:
 			print "Incorrect argument, on method html_entity_decode(",str,"), expected string"
 		except TypeError, te:
