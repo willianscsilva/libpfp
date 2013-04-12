@@ -13,8 +13,8 @@ if __name__ == "__main__":
 			print pfp.addslashes("O'CONNEL")
 		elif argm == "explode":
 			print pfp.explode("-","2010-20-03")
-		elif argm == "html_entities":
-			print pfp.html_entities('<b>á</b>')
+		elif argm == "htmlentities":
+			print pfp.htmlentities('<b>á</b>')
 		elif argm == "html_entity_decode":
 			print pfp.html_entity_decode('&lt;b&gt;á&lt;/b&gt;')
 		elif argm == "implode":

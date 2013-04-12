@@ -20,7 +20,7 @@ class pfp_string:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 
-	def html_entities(self,str):
+	def htmlentities(self,str):
 		return cgi.escape(str)
 
 	def html_entity_decode_char(self,m, defs=htmlentitydefs.entitydefs):
