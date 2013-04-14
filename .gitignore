@@ -1,3 +1,6 @@
 *.txt
 *.pyc
 *.swp
+*.o
+*.so
+build/
