@@ -23,7 +23,23 @@ if __name__ == "__main__":
 		elif argm == "lcfirst":
 			print pfp.lcfirst("HELLO WORLD")
 		elif argm == "ucfirst":
-			print pfp.ucfirst(1)
+			print pfp.ucfirst("hello world")
+		elif argm == "levenshtein":
+			print pfp.levenshtein("hello","world")
+		elif argm == "trim":
+			print pfp.trim({" hello ":"hello"})
+		elif argm == "ltrim":
+			print pfp.ltrim(" hello ")+"world"	
+		elif argm == "rtrim":
+			print pfp.trim(" hello ")+"world"
+		elif argm == "md5":
+			print pfp.md5("hello")
+		elif argm == "nl2br":
+			str = "ola mundo\ncruel"				
+			print pfp.nl2br(str)
+		elif argm == "number_format":
+			print pfp.number_format('1012452.20',2,",","")
+			
 	else:
 		program_name = sys.argv[0]
 		print "\nIncorrect arguments, see how to use:\n"
