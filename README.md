@@ -5,7 +5,7 @@ When you clone the repository, you can already using and enjoying this library a
 
 To use this library as an extension of Python is required:
 
- - 1: Installing Cython.
+ - 1: Installing GCC compiler, Cython and Python header files (python-devel.x86_64 to 64 bits or python-devel.i686 to 32 bits).
  - 2: Run the setup.py file (python setup.py install), which is located in "libpfp/src/src_build/".
  - 3: Ready to use.
 
@@ -19,7 +19,7 @@ Ao clonar o repositorio, você ja pode utlizar essa biblioteca como um modulo, v
 
 Para utilizar essa biblioteca como uma extensão do Python é necessário:
 
- - 1: Instalar o Cython.
+ - 1: Instalar o compilador GCC, o Cython e arquivos de cabeçalho do Python (python-devel.x86_64 para 64 bits ou python-devel.i686 para 32 bits).
  - 2: Executar o arquivo setup.py (python setup.py install), que está localizado em "libpfp/src/src_build/".
  - 3: Pronto para se utilizado.
 
