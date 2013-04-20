@@ -32,8 +32,8 @@ AUTHOR              = "Willians Costa da Silva"
 AUTHOR_EMAIL        = "willianscsilva@gmail.com"
 PLATFORMS           = ["Linux","Unix"]
 MAJOR               = 0
-MINOR               = 1
-MICRO               = 3
+MINOR               = 3
+MICRO               = 0
 VERSION             = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
 
 if len(sys.argv) == 2:

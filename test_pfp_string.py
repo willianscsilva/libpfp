@@ -3,8 +3,6 @@
 import sys
 from src.pfp_string import pfp_string
 
-
-
 if __name__ == "__main__":
 	pfp = pfp_string()
 	if len(sys.argv) > 1:
@@ -39,6 +37,23 @@ if __name__ == "__main__":
 			print pfp.nl2br(str)
 		elif argm == "number_format":
 			print pfp.number_format('1012452.20',2,",","")
+		elif argm == "str_replace":
+			print pfp.str_replace("o",0,"hello world")
+		elif argm == "strip_tags":
+			print pfp.strip_tags("<a href=\"#\">click here</a>")
+		elif argm == "stripslashes":
+			print pfp.stripslashes("Is your name O\'reilly?")
+		elif argm == "strlen":
+			print pfp.strlen("hello world")
+		elif argm == "strpos":
+			print pfp.strpos("hello","o")
+		elif argm == "strtolower":
+			print pfp.strtolower("HELLO WORLD")
+		elif argm == "strtoupper":
+			print pfp.strtoupper("hello world")
+		elif argm == "substr":
+			print pfp.substr("hello world",1,7)
+			
 			
 	else:
 		program_name = sys.argv[0]

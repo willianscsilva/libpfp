@@ -11,29 +11,29 @@ Note: Copy, distribute, modify freely, but keep the credits, please.
 import htmlentitydefs
 import hashlib
 import locale
-import re,cgi,sys
+import re,cgi,sys,traceback
 class pfp_string:
-	def addslashes(self,str):
-		return str.replace("'","\\\'").replace("\"","\\\"")
+	def addslashes(self,_str):
+		return _str.replace("'","\\\'").replace("\"","\\\"")
 
-	def explode(self,delimiter,str,limit=0):
+	def explode(self,delimiter,_str,limit=0):
 		try:
 			if limit == 0:
-				return str.split(delimiter)
+				return _str.split(delimiter)
 			elif type(limit) == int:
-				return str.split(delimiter,limit)
+				return _str.split(delimiter,limit)
 			else:
-				print "Incorrect argument: method explode(",delimiter,", ",str,", ",limit,"), expected integer given ",type(limit)
+				print "Incorrect argument: method explode(",delimiter,", ",_str,", ",limit,"), expected integer given ",type(limit)
 		except TypeError, te:
-			print "Incorrect argument: method explode(",delimiter,", ",str,", ",limit,"), expected a character buffer object given ",type(str)
+			print "Incorrect argument: method explode(",delimiter,", ",_str,", ",limit,"), expected a character buffer object given ",type(_str)
 		except AttributeError, ae:
-			print "Incorrect argument: method explode(",delimiter,", ",str,", ",limit,"), expected string given ",type(str)
+			print "Incorrect argument: method explode(",delimiter,", ",_str,", ",limit,"), expected string given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 
-	def htmlentities(self,str):
-		return cgi.escape(str)
+	def htmlentities(self,_str):
+		return cgi.escape(_str)
 
 	def __html_entity_decode_char(self,m, defs=htmlentitydefs.entitydefs):
 		try:
@@ -41,14 +41,14 @@ class pfp_string:
 		except KeyError:
 			return m.group(0)
 
-	def html_entity_decode(self,str):
+	def html_entity_decode(self,_str):
 		try:
 			pattern = re.compile("&(\w+?);")
-			return pattern.sub(self.__html_entity_decode_char, str)
+			return pattern.sub(self.__html_entity_decode_char, _str)
 		except AttributeError, ae:
-			print "Incorrect argument: method html_entity_decode(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method html_entity_decode(",_str,"), expected string given ",type(_str)
 		except TypeError, te:
-			print "Incorrect argument: method html_entity_decode(",str,"), expected string or buffer given ",type(str)
+			print "Incorrect argument: method html_entity_decode(",_str,"), expected string or buffer given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
@@ -64,20 +64,20 @@ class pfp_string:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 
-	def lcfirst(self,str):
+	def lcfirst(self,_str):
 		try:
-			return str.replace(str[0],str[0].lower())
+			return _str.replace(_str[0],_str[0].lower())
 		except AttributeError, ae:
-			print "Incorrect argument: method lcfirst(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method lcfirst(",_str,"), expected string given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 
-	def ucfirst(self,str):
+	def ucfirst(self,_str):
 		try:
-			return str.replace(str[0],str[0].upper())
+			return _str.replace(_str[0],_str[0].upper())
 		except AttributeError, ae:
-			print "Incorrect argument: method ucfirst(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method ucfirst(",_str,"), expected string given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
@@ -109,55 +109,55 @@ class pfp_string:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 	
-	def trim(self,str):
+	def trim(self,_str):
 		try:
-			return str.strip()
+			return _str.strip()
 		except AttributeError, ae:
-			print "Incorrect argument: method trim(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method trim(",_str,"), expected string given ",type(_str)
 		except TypeError, te:
-			print "Incorrect argument: method trim(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method trim(",_str,"), expected string given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 	
-	def ltrim(self,str):
+	def ltrim(self,_str):
 		try:
-			return str.lstrip()
+			return _str.lstrip()
 		except AttributeError, ae:
-			print "Incorrect argument: method ltrim(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method ltrim(",_str,"), expected string given ",type(_str)
 		except TypeError, te:
-			print "Incorrect argument: method ltrim(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method ltrim(",_str,"), expected string given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 	
-	def rtrim(self,str):
+	def rtrim(self,_str):
 		try:
-			return str.rstrip()
+			return _str.rstrip()
 		except AttributeError, ae:
-			print "Incorrect argument: method rtrim(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method rtrim(",_str,"), expected string given ",type(_str)
 		except TypeError, te:
-			print "Incorrect argument: method rtrim(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method rtrim(",_str,"), expected string given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 	
-	def md5(self,str):
+	def md5(self,_str):
 		try:
 			h = hashlib.md5()
-			h.update(str)
+			h.update(_str)
 			return h.hexdigest()
 		except TypeError, te:
-			print "Incorrect argument: method md5(",str,"), expected string given ",type(str)
+			print "Incorrect argument: method md5(",_str,"), expected string given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 			
-	def nl2br(self,str):
+	def nl2br(self,_str):
 		try:
-			return re.sub('[\n\r]','<br />',str)
+			return re.sub('[\n\r]','<br />',_str)
 		except TypeError, te:
-			print "Incorrect argument: method nl2br(",str,"), expected string or buffer given ",type(str)
+			print "Incorrect argument: method nl2br(",_str,"), expected string or buffer given ",type(_str)
 		except:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
@@ -205,3 +205,97 @@ class pfp_string:
 			print "Unexpected error:", sys.exc_info()[0]
 			raise
 			
+	def str_replace(self,search,replace,_str):
+		try:
+			type_search = type(search)
+			type_replace = type(replace)
+			
+			if type_search == list and type_replace == list:
+				if len(search) == len(replace):
+					i=0
+					for values in search:
+						_str = _str.replace(values,replace[i])
+						i+=1
+			elif type_search == list and type_replace == str:
+				for values in search:
+					_str = _str.replace(values,replace)
+				
+			elif type_search == str and type_replace == str:
+				_str = _str.replace(search,replace)
+			elif type_search == int or type_replace == int:
+				_str = _str.replace(str(search),str(replace))
+			return _str
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+			
+	def strip_tags(self,_str):
+		try:
+			pattern = re.compile('\<(.*?)[>-]*\>')
+			str_striped = pattern.sub('',_str)
+			return str_striped
+		except AttributeError, ae:
+			print "Incorrect argument: method strip_tags(",_str,"), expected string given ",type(_str)
+		except TypeError, te:
+			print "Incorrect argument: method strip_tags(",_str,"), expected string given ",type(_str)
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+			
+	def stripslashes(self,_str):
+		try:
+			return _str.replace("\\\'","'").replace("\\\"","\"")
+		except AttributeError, ae:
+			print "Incorrect argument: method stripslashes(",_str,"), expected string given ",type(_str)
+		except TypeError, te:
+			print "Incorrect argument: method stripslashes(",_str,"), expected string given ",type(_str)
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+	
+	def strlen(self,_str):
+		try:
+			return len(_str)
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+		raise
+		
+	def strpos(self,_str,findme):
+		try:
+			return _str.find(str(findme))
+		except AttributeError, ae:
+			print "Incorrect argument: method strpos(",_str,", ",findme,"), expected string given ",type(_str),"and",type(findme)
+		except TypeError, te:
+			print "Incorrect argument: method strpos(",_str,", ",findme,"), expected string given ",type(_str),"and",type(findme)
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+			
+	def strtolower(self,_str):
+		try:
+			return _str.lower()
+		except AttributeError, ae:
+			print "Incorrect argument: method strtolower(",_str,"), expected string given ",type(_str)
+		except TypeError, te:
+			print "Incorrect argument: method strtolower(",_str,"), expected string given ",type(_str)
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+			
+	def strtoupper(self,_str):
+		try:
+			return _str.upper()
+		except AttributeError, ae:
+			print "Incorrect argument: method strtoupper(",_str,"), expected string given ",type(_str)
+		except TypeError, te:
+			print "Incorrect argument: method strtoupper(",_str,"), expected string given ",type(_str)
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
+			
+	def substr(self,_str,start,length):
+		try:
+			return _str[start:length]
+		except:
+			print "Unexpected error:", sys.exc_info()[0]
+			raise
