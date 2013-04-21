@@ -32,14 +32,14 @@ AUTHOR              = "Willians Costa da Silva"
 AUTHOR_EMAIL        = "willianscsilva@gmail.com"
 PLATFORMS           = ["Linux","Unix"]
 MAJOR               = 0
-MINOR               = 3
-MICRO               = 0
+MINOR               = 4
+MICRO               = 1
 VERSION             = '%d.%d.%d' % (MAJOR, MINOR, MICRO)
 
 if len(sys.argv) == 2:
     arg = sys.argv[1]
     if arg == "build" or arg == "install":
-        ext_modules = [Extension("pfp_string", ["pfp_string.pyx"]),]
+        ext_modules = [Extension("pfp_string", ["pfp_string.pyx"]),Extension("pfp_regex", ["pfp_regex.pyx"]),]
         for e in ext_modules:
             e.pyrex_directives = {"boundscheck": False}
             setup(

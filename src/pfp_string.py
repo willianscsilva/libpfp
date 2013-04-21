@@ -216,6 +216,8 @@ class pfp_string:
 					for values in search:
 						_str = _str.replace(values,replace[i])
 						i+=1
+				else:
+					print "Length Error: search and replace must have the same size"
 			elif type_search == list and type_replace == str:
 				for values in search:
 					_str = _str.replace(values,replace)
