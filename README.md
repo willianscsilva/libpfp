@@ -18,6 +18,9 @@ Questions of how to use it:
 
 -------------------------------------------------------------------------//--------------------------------------------------------------------------------
 
+A LibPFP é uma implementação das funções do Php em Python.
+
+É uma biblioteca de propósito geral e livre.
 
 Ao clonar o repositorio, você ja pode utlizar essa biblioteca como um modulo, veja o arquivo de teste "test_pfp_string.py", que lhe servirá como exemplo de uso.
 
