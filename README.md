@@ -1,6 +1,10 @@
 # LibPFP #
 ## Python library for PHP Programmers ##
 
+The LibPFP is an implementation of the Php functions in  Python. 
+
+Is an library of general purpose and free.
+
 When you clone the repository, you can already using and enjoying this library as a module, see the test file "test_pfp_string.py" which will serve as an example of use.
 
 To use this library as an extension of Python is required:
